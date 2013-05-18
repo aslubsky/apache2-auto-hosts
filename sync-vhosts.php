@@ -6,7 +6,7 @@ $apacheEnabledHostsDir = '/etc/apache2/sites-enabled';
 if ($handle = opendir($workDir)) {
     /* This is the correct way to loop over the directory. */
     while (false !== ($hostDir = readdir($handle))) {
-        if(strpos($hostDir, 'local.') !== false) {
+        if(strpos($hostDir, 'local.') !== false || strpos($hostDir, 'test.') !== false) {
             // echo "$hostDir\n";
             
             //check if host exist
