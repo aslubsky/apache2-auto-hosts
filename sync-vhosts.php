@@ -13,8 +13,8 @@ if ($handle = opendir($workDir)) {
             if(!file_exists($apacheHostsDir.'/'.$hostDir)) {
                 //add vhost
                 $tplCont = file_get_contents(dirname(__FILE__).'/vhosts.tpl');
-                $tplCont = str_replace('{{hostName}}', $hostDir), $tplCont);
-                $tplCont = str_replace('{{projectsDir}}', $workDir), $tplCont);
+                $tplCont = str_replace('{{hostName}}', $hostDir, $tplCont);
+                $tplCont = str_replace('{{projectsDir}}', $workDir, $tplCont);
                 file_put_contents($apacheHostsDir.'/'.$hostDir, $tplCont);
                 echo shell_exec('a2ensite '.$hostDir);
                 echo 'add '.$hostDir."\n";
